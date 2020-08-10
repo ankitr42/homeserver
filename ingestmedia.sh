@@ -34,13 +34,16 @@ copymedia() {
     ret=0
     cd /"$1"
     for d in */; do
-        if [ -e "$d"/.ready -a ! -e "$d"/.copied ]; then
+        if [ -e "$d"/.ready -a ! -e "$d"/.copied -a ! -e "$d"/.copying ]; then
+            touch "$d"/.copying
             cp -r -f -v "$d"/ "$2"
             if [ "$?" -eq "0" ]; then
                 touch "$d"/.copied
                 rm "$2"/"$d"/.ready
+                rm "$2"/"$d"/.copying
                 ret=1
             fi
+            rm "$d"/.copying
         fi
     done
     return $ret

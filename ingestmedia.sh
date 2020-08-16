@@ -23,6 +23,9 @@ pms=/snap/plexmediaserver/current/Plex\ Media\ Scanner
 inputmovies=/mnt/raid/transfer/plex/movies
 outputmovies=/mnt/raid/media/movies
 
+intv=/mnt/raid/transfer/plex/tv
+outtv=/mnt/raid/media/tv
+
 inputmusicen=/mnt/raid/transfer/plex/music/english
 inputmusichi=/mnt/raid/transfer/plex/music/hindi
 outputmusicen=/mnt/raid/media/music/english
@@ -64,6 +67,10 @@ enmusicret=$?
 copymedia $inputmusichi $outputmusichi
 himusicret=$?
 
+# Copy new TV
+copymedia $intv $outtv
+tvret=$?
+
 #if [ "$moviesret" -eq "1" ]; then
     #"$pms" -scan --refresh --directory "$outputmovies"
 #fi
@@ -74,6 +81,10 @@ himusicret=$?
 
 #if [ "$himusicret" -eq "1" ]; then
     #"$pms" --scan --refresh --directory "$outputmusichi"
+#fi
+
+#if [ "$tvret" -eq "1" ]; then
+    #"$pms" --scan --refresh --directory "$outtv"
 #fi
 
 echo "Done"

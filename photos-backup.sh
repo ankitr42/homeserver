@@ -7,7 +7,7 @@
 # Albums folders should not have any sub-folders
 photos=/mnt/raid/cloud/ankit/files/Photos
 mailto=ankitr.42@gmail.com
-logdir=/photos-backup
+logdir=./photos-backup
 logfilename=photos-$(date -I).log
 logfile=$logdir/$logfilename
 
@@ -17,7 +17,7 @@ startup=$(</proc/uptime awk '{print $1}')
 shutdownwhendone=$(echo "$startup < 420" | bc -l)
 
 # 1-Way copy, no-delete, create new albums by foldernames
-rclone copy $photos gphotos-test:album -P --log-file=$logfile -v
+rclone copy $photos gphotos-ankit:album -P --log-file=$logfile -v
 
 if [ $? -eq 0 ]; then
     # Send a summary mail when successful.

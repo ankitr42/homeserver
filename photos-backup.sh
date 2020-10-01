@@ -6,7 +6,7 @@
 # Photo Album Paths
 # Albums folders should not have any sub-folders
 photos=/mnt/raid/cloud/ankit/files/Photos
-mailto=ankitr.42@gmail.com
+mailto=mail@email.com
 logdir=./photos-backup
 logfilename=photos-$(date -I).log
 logfile=$logdir/$logfilename

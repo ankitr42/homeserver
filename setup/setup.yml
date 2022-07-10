@@ -3,7 +3,15 @@
     hosts: media-hub
 
     tasks:
-      - name: ensure snap is available
+      - name: Apt upgrade
+        apt:
+          upgrade:
+      - name: Ensure snap is available
         apt:
           name: snap
           state: latest
+      - name: Install Plex snap module
+        snap:
+          name: plex nextcloud deluge
+          state: present
+          

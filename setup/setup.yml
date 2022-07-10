@@ -1,0 +1,9 @@
+---
+  - name: setup-media-hub
+    hosts: media-hub
+
+    tasks:
+      - name: ensure snap is available
+        apt:
+          name: snap
+          state: latest

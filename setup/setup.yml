@@ -5,7 +5,7 @@
     tasks:
       - name: Apt upgrade
         apt:
-          upgrade: dist
+          upgrade: yes
       - name: Ensure snap is available
         apt:
           name: snap

@@ -12,6 +12,6 @@
           state: latest
       - name: Install Plex snap module
         snap:
-          name: plex
+          name: plexmediaserver nextcloud deluge-lukewh
           state: present
           

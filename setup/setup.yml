@@ -12,6 +12,6 @@
           state: latest
       - name: Install Plex snap module
         snap:
-          name: plex nextcloud deluge
+          name: plex
           state: present
           
